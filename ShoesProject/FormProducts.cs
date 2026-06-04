@@ -8,7 +8,7 @@ namespace ShoesProject
     {
         public User CurrentUser { get; private set; }
         public bool IsGuest { get; private set; }
-        public FormProducts(bool guest, User user)
+        public FormProducts(User user, bool guest)
         {
             InitializeComponent();
 
@@ -46,7 +46,7 @@ namespace ShoesProject
             {
                 using (var db = new ShopDb2Context())
                 {
-                    var products = db.Products.Include(i => i.Category).Include(i => i.Manufacturer).Include(i => i.Supplier).Include(i => i.Measure).ToList();
+                    var products = db.Products.Include(i => i.Category).Include(i => i.Manufacturer).Include(i => i.Supplier).Include(i => i.Measure).Include(i=>i.ProductType).ToList();
                     dgvProducts.SuspendLayout();
                     dgvProducts.Rows.Clear();
 
@@ -64,6 +64,8 @@ namespace ShoesProject
 
                         ApplyRowStyles(row, product);
                     }
+                    dgvProducts.ResumeLayout();
+                    dgvProducts.AutoResizeRows(DataGridViewAutoSizeRowsMode.AllCells);
 
                 }
             }
