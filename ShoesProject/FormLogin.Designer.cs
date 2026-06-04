@@ -81,6 +81,7 @@
             btnGuest.TabIndex = 3;
             btnGuest.Text = "Войти как гость";
             btnGuest.UseVisualStyleBackColor = false;
+            btnGuest.Click += BtnGuest_Click;
             // 
             // lbPassword
             // 
@@ -112,6 +113,7 @@
             btnLogin.TabIndex = 0;
             btnLogin.Text = "Войти";
             btnLogin.UseVisualStyleBackColor = false;
+            btnLogin.Click += BtnLogin_Click;
             // 
             // pbLogo
             // 
