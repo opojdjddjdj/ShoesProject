@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using ShoesProject.Models;
 
 namespace ShoesProject;
@@ -108,7 +106,7 @@ public partial class ShopDb2Context : DbContext
                 .HasForeignKey(d => d.IdStatuses)
                 .HasConstraintName("orders_id_statuses_fkey");
 
-            entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.Orders)
+            entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.IdUser)
                 .HasConstraintName("orders_id_user_fkey");
         });
@@ -150,7 +148,7 @@ public partial class ShopDb2Context : DbContext
                 .HasForeignKey(d => d.IdSupplier)
                 .HasConstraintName("products_id_supplier_fkey");
 
-            entity.HasOne(d => d.IdTypeNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.ProductType).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdType)
                 .HasConstraintName("products_id_type_fkey");
         });
@@ -229,7 +227,7 @@ public partial class ShopDb2Context : DbContext
             entity.Property(e => e.MiddleName).HasColumnName("middle_name");
             entity.Property(e => e.Pass).HasColumnName("pass");
 
-            entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.Users)
+            entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.IdRole)
                 .HasConstraintName("users_id_role_fkey");
         });
