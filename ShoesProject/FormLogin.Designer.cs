@@ -49,14 +49,14 @@
             panelMain.Controls.Add(lbPassword);
             panelMain.Controls.Add(lbLogin);
             panelMain.Controls.Add(btnLogin);
-            panelMain.Location = new Point(22, 120);
+            panelMain.Location = new Point(19, 120);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(350, 229);
+            panelMain.Size = new Size(350, 230);
             panelMain.TabIndex = 1;
             // 
             // txtPassword
             // 
-            txtPassword.Location = new Point(65, 101);
+            txtPassword.Location = new Point(62, 101);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(218, 26);
             txtPassword.TabIndex = 5;
@@ -64,7 +64,7 @@
             // 
             // txtLogin
             // 
-            txtLogin.Location = new Point(65, 44);
+            txtLogin.Location = new Point(62, 44);
             txtLogin.Name = "txtLogin";
             txtLogin.Size = new Size(218, 26);
             txtLogin.TabIndex = 4;
@@ -75,7 +75,7 @@
             btnGuest.FlatAppearance.BorderSize = 0;
             btnGuest.FlatStyle = FlatStyle.Flat;
             btnGuest.Font = new Font("Times New Roman", 14.25F);
-            btnGuest.Location = new Point(98, 186);
+            btnGuest.Location = new Point(95, 186);
             btnGuest.Name = "btnGuest";
             btnGuest.Size = new Size(150, 34);
             btnGuest.TabIndex = 3;
@@ -86,7 +86,7 @@
             // lbPassword
             // 
             lbPassword.AutoSize = true;
-            lbPassword.Location = new Point(137, 79);
+            lbPassword.Location = new Point(140, 75);
             lbPassword.Name = "lbPassword";
             lbPassword.Size = new Size(58, 19);
             lbPassword.TabIndex = 2;
@@ -95,7 +95,7 @@
             // lbLogin
             // 
             lbLogin.AutoSize = true;
-            lbLogin.Location = new Point(137, 16);
+            lbLogin.Location = new Point(140, 16);
             lbLogin.Name = "lbLogin";
             lbLogin.Size = new Size(52, 19);
             lbLogin.TabIndex = 1;
@@ -107,7 +107,7 @@
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Times New Roman", 14.25F);
-            btnLogin.Location = new Point(98, 143);
+            btnLogin.Location = new Point(95, 143);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(150, 34);
             btnLogin.TabIndex = 0;

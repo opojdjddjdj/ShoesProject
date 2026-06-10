@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ShoesProject;
 using ShoesProject.Models;
 using ShoesProject.Properties;
 
@@ -11,6 +12,11 @@ namespace ShoesProject
         public FormProducts(User user, bool guest)
         {
             InitializeComponent();
+
+            if (this.Controls.Contains(btnGoToOrders)) this.Controls.Remove(btnGoToOrders);
+            panelTop.Controls.Add(btnGoToOrders);
+            btnGoToOrders.Visible = true;
+            btnGoToOrders.BringToFront();
 
             var colPhoto = new DataGridViewImageColumn();
             colPhoto.Name = "colPhoto";
@@ -34,10 +40,11 @@ namespace ShoesProject
             ]);
             CurrentUser = user;
             IsGuest = guest;
-
             lblUserName.Text = IsGuest ? "Гость" : CurrentUser.FullName;
-
             LoadProducts();
+            panelTop.Controls.Add(btnGoToOrders);
+            btnGoToOrders.BringToFront();
+
         }
 
         private void LoadProducts()
@@ -46,7 +53,7 @@ namespace ShoesProject
             {
                 using (var db = new ShopDb2Context())
                 {
-                    var products = db.Products.Include(i => i.Category).Include(i => i.Manufacturer).Include(i => i.Supplier).Include(i => i.Measure).Include(i=>i.ProductType).ToList();
+                    var products = db.Products.Include(i => i.Category).Include(i => i.Manufacturer).Include(i => i.Supplier).Include(i => i.Measure).Include(i => i.ProductType).ToList();
                     dgvProducts.SuspendLayout();
                     dgvProducts.Rows.Clear();
 
@@ -137,6 +144,19 @@ namespace ShoesProject
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
+        }
+
+        private void btnGoToOrders_Click(object sender, EventArgs e)
+        {
+            if (IsGuest || CurrentUser == null)
+            {
+                MessageBox.Show("Просмотр заказов доступен только авторизованным пользователям! Пожалуйста, войдите в систему.","Доступ ограничен",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+            this.Hide();
+            FormOrders formOrders = new FormOrders(CurrentUser, IsGuest);
+            formOrders.ShowDialog();
+            this.Show();
         }
     }
 }
