@@ -30,6 +30,7 @@
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelTop = new Panel();
+            btnGoToOrders = new Button();
             lblUserName = new Label();
             btnLogout = new Button();
             dgvProducts = new DataGridView();
@@ -39,6 +40,7 @@
             // 
             // panelTop
             // 
+            panelTop.Controls.Add(btnGoToOrders);
             panelTop.Controls.Add(lblUserName);
             panelTop.Controls.Add(btnLogout);
             panelTop.Dock = DockStyle.Top;
@@ -47,6 +49,21 @@
             panelTop.Padding = new Padding(0, 0, 0, 10);
             panelTop.Size = new Size(964, 40);
             panelTop.TabIndex = 0;
+            // 
+            // btnGoToOrders
+            // 
+            btnGoToOrders.BackColor = Color.Yellow;
+            btnGoToOrders.Dock = DockStyle.Left;
+            btnGoToOrders.FlatAppearance.BorderSize = 0;
+            btnGoToOrders.FlatStyle = FlatStyle.Flat;
+            btnGoToOrders.Font = new Font("Times New Roman", 14.25F);
+            btnGoToOrders.Location = new Point(0, 0);
+            btnGoToOrders.Name = "btnGoToOrders";
+            btnGoToOrders.Size = new Size(173, 30);
+            btnGoToOrders.TabIndex = 3;
+            btnGoToOrders.Text = "Перейти к заказам";
+            btnGoToOrders.UseVisualStyleBackColor = false;
+            btnGoToOrders.Click += btnGoToOrders_Click;
             // 
             // lblUserName
             // 
@@ -128,5 +145,6 @@
         private DataGridView dgvProducts;
         private Label lblUserName;
         private Button btnLogout;
+        private Button btnGoToOrders;
     }
 }
